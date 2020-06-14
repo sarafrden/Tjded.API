@@ -17,8 +17,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Auth::routes();
+//Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 // Route::get('login/{provider}/callback','Auth\LoginController@handleProviderCallback');
+
+
+Route::get('/', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');

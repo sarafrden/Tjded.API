@@ -1,0 +1,1511 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel OpenApi Demo Documentation",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "admin@admin.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Insert new User",
+                "description": "Returns User data",
+                "operationId": "Insert Users",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login User",
+                "description": "Returns Access token",
+                "operationId": "Login User",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "logout User",
+                "description": "Returns logout",
+                "operationId": "logoutUser",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Get the authenticated User",
+                "description": "Returns user info",
+                "operationId": "authenticatedUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/categories/getList": {
+            "post": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get list of Categories",
+                "description": "Returns list of Categories",
+                "operationId": "getCategoryList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categories/create": {
+            "post": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Insert new Category",
+                "description": "Returns Category data",
+                "operationId": "Insert Category",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Category"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/categories/{id}/update": {
+            "post": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Insert new Category info",
+                "description": "Returns Category data",
+                "operationId": "Update Category",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Category id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Category"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/categories/{id}/delete": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Delete single Category",
+                "description": "Returns Deleted",
+                "operationId": "DeleteSingleCategory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Category id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/categories/{id}/getItems": {
+            "post": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get list of category Items",
+                "description": "Returns list of Items",
+                "operationId": "getCategoryItemsList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Item"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/messages": {
+            "get": {
+                "tags": [
+                    "Messages"
+                ],
+                "summary": "Get list of messages",
+                "description": "Returns list of messages",
+                "operationId": "getAllmessages",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Message"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Messages"
+                ],
+                "summary": "Insert new messages",
+                "description": "Returns messages data",
+                "operationId": "Insert messages",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Message"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Message"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/Items/getList": {
+            "post": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Get list of Items",
+                "description": "Returns list of Items",
+                "operationId": "getItemsList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Item"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Items/getListWithCategory": {
+            "post": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Get list of Items With Category",
+                "description": "Returns list of Items With Category",
+                "operationId": "getItemsListWithCategory",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Item"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Items/{id}/getById": {
+            "get": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Get single Items",
+                "description": "Returns Get single Items",
+                "operationId": "GetSingleItem",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Items id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Item"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Items/create": {
+            "post": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Insert new Item",
+                "description": "Returns Item data",
+                "operationId": "Insert Item",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Item"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Item"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/Items/{id}/update": {
+            "post": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Insert new Item info",
+                "description": "Returns Item data",
+                "operationId": "Update Item",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Item id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Item"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Item"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/Items/{id}/delete": {
+            "get": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Delete single Item",
+                "description": "Returns Deleted",
+                "operationId": "DeleteSingleItem",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Item id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Item"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/Items/{id}/getReplay": {
+            "post": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Get list of Items Replays",
+                "description": "Returns list of Replays",
+                "operationId": "getItemReplayssList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Item"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Providers/getList": {
+            "post": {
+                "tags": [
+                    "Providers"
+                ],
+                "summary": "Get list of Providers",
+                "description": "Returns list of Providers",
+                "operationId": "getProvidersList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Provider"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Providers/getById/{id}": {
+            "get": {
+                "tags": [
+                    "Providers"
+                ],
+                "summary": "Get single Providers",
+                "description": "Returns Get single Providers",
+                "operationId": "GetSingleProvider",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Providers id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Provider"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Providers/create": {
+            "post": {
+                "tags": [
+                    "Providers"
+                ],
+                "summary": "Insert new Provider",
+                "description": "Returns Provider data",
+                "operationId": "Insert Provider",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Provider"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Provider"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/Providers/{id}/update": {
+            "post": {
+                "tags": [
+                    "Providers"
+                ],
+                "summary": "Insert new Provider info",
+                "description": "Returns Provider data",
+                "operationId": "Update Provider",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Provider id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Provider"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Provider"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/Providers/{id}/delete": {
+            "get": {
+                "tags": [
+                    "Providers"
+                ],
+                "summary": "Delete single Provider",
+                "description": "Returns Deleted",
+                "operationId": "DeleteSingleProvider",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Provider id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Provider"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/Providers/rate/{id}": {
+            "post": {
+                "tags": [
+                    "Providers"
+                ],
+                "summary": "Insert Provider Rate",
+                "description": "Returns Provider data",
+                "operationId": "Rate Provider",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Provider id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Provider"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Provider"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/Providers/{id}/getRate": {
+            "get": {
+                "tags": [
+                    "Providers"
+                ],
+                "summary": "Get single ProvidersRate",
+                "description": "Returns Get single Providers Rate",
+                "operationId": "GetSingleProviderRate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Providers id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Provider"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/replays/getList": {
+            "post": {
+                "tags": [
+                    "Replays"
+                ],
+                "summary": "Get list of replays",
+                "description": "Returns list of replays",
+                "operationId": "getreplaysList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Replay"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/replays/{id}/getById": {
+            "get": {
+                "tags": [
+                    "Replays"
+                ],
+                "summary": "Get single replays",
+                "description": "Returns Get single replays",
+                "operationId": "GetSinglereplay",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "replays id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Replay"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/replays/create": {
+            "post": {
+                "tags": [
+                    "Replays"
+                ],
+                "summary": "Insert new Replay",
+                "description": "Returns Replay data",
+                "operationId": "Insert Replay",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Replay"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Replay"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/replays/{id}/update": {
+            "post": {
+                "tags": [
+                    "Replays"
+                ],
+                "summary": "Insert new Replay info",
+                "description": "Returns Replay data",
+                "operationId": "Update Replay",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Replay id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Replay"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Replay"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/replays/{id}/delete": {
+            "get": {
+                "tags": [
+                    "Replays"
+                ],
+                "summary": "Delete single Replay",
+                "description": "Returns Deleted",
+                "operationId": "DeleteSingleReplay",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Replay id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Replay"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/Users/getList": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get list of Users",
+                "description": "Returns list of Users",
+                "operationId": "getUsersList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Users/{id}/getById": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get single Users",
+                "description": "Returns Get single Users",
+                "operationId": "GetSingleUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Users id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{id}/delete": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete single User",
+                "description": "Returns Deleted",
+                "operationId": "DeleteSingleUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/user/getOTP": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "getOTP",
+                "description": "Returns User otp",
+                "operationId": "getOTP",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/loginUsingOTP": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "loginUsingOTP",
+                "description": "Returns Access otp",
+                "operationId": "loginUsingOTP",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Category": {
+                "title": "Category",
+                "description": "Category model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "name of the category",
+                        "type": "string",
+                        "example": "cars"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Category"
+                }
+            },
+            "Item": {
+                "title": "Item",
+                "description": "Item model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "required": {
+                        "title": "required",
+                        "description": "required to renew",
+                        "type": "string",
+                        "example": "paint"
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "description",
+                        "type": "string",
+                        "example": "black & white"
+                    },
+                    "images": {
+                        "title": "images",
+                        "description": "item images",
+                        "type": "string",
+                        "example": "photo"
+                    },
+                    "category_id": {
+                        "title": "category_id",
+                        "description": "category_id",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "limited_price": {
+                        "title": "limited_price",
+                        "description": "budget",
+                        "type": "number",
+                        "format": "float",
+                        "example": 100
+                    },
+                    "address": {
+                        "title": "address",
+                        "description": "address",
+                        "type": "string",
+                        "example": 1
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Item"
+                }
+            },
+            "Message": {
+                "title": "Message",
+                "description": "Message model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "message": {
+                        "title": "message",
+                        "description": "chat to ask for design",
+                        "type": "string",
+                        "example": "hello"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Message"
+                }
+            },
+            "Provider": {
+                "title": "Provider",
+                "description": "Provider model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "provider name",
+                        "type": "string",
+                        "example": "Sara"
+                    },
+                    "profession": {
+                        "title": "profession",
+                        "description": "provider job",
+                        "type": "string",
+                        "example": "dyer"
+                    },
+                    "skills": {
+                        "title": "skills",
+                        "description": "provider skills",
+                        "type": "string",
+                        "example": "carpentry"
+                    },
+                    "phone_number": {
+                        "title": "phone_number",
+                        "description": "provider phone",
+                        "type": "string",
+                        "example": "0770*******"
+                    },
+                    "photo": {
+                        "title": "photo",
+                        "description": "provider picture",
+                        "type": "string",
+                        "example": "photo"
+                    },
+                    "models": {
+                        "title": "models",
+                        "description": "models of his work",
+                        "type": "string",
+                        "example": "photo"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Provider"
+                }
+            },
+            "Replay": {
+                "title": "Replay",
+                "description": "Replay model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "replay": {
+                        "title": "replay",
+                        "description": "replay body",
+                        "type": "string",
+                        "example": "I can do it"
+                    },
+                    "images": {
+                        "title": "images",
+                        "description": "photo of a model",
+                        "type": "string",
+                        "example": "photo"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Replay"
+                }
+            },
+            "SocialIdentity": {
+                "title": "SocialIdentity",
+                "description": "SocialIdentity model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "title": "user_id",
+                        "description": "user_id",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "provider_name": {
+                        "title": "provider_name",
+                        "description": "provider_name",
+                        "type": "string",
+                        "example": "facebook"
+                    },
+                    "provider_id": {
+                        "title": "provider_id",
+                        "description": "provider_id",
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "SocialIdentity"
+                }
+            },
+            "User": {
+                "title": "User",
+                "description": "User model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "name of the new user",
+                        "type": "string",
+                        "example": "sara"
+                    },
+                    "role": {
+                        "title": "role",
+                        "description": "role of the new user",
+                        "type": "string",
+                        "example": "admin"
+                    },
+                    "phone": {
+                        "title": "phone",
+                        "description": "phone of the new user",
+                        "type": "string",
+                        "example": "07707722504"
+                    },
+                    "password": {
+                        "title": "password",
+                        "description": "Password of the new user",
+                        "type": "string",
+                        "example": "sara1234"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            }
+        },
+        "securitySchemes": {
+            "api_key": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Users",
+            "description": "API Endpoints of Users"
+        },
+        {
+            "name": "Auth",
+            "description": "API Endpoints of Auth"
+        },
+        {
+            "name": "Categories",
+            "description": "API Endpoints of Categories"
+        },
+        {
+            "name": "Items",
+            "description": "API Endpoints of Items"
+        },
+        {
+            "name": "Messages",
+            "description": "API Endpoints of Messages"
+        },
+        {
+            "name": "Providers",
+            "description": "API Endpoints of Providers"
+        },
+        {
+            "name": "Replays",
+            "description": "API Endpoints of Replays"
+        },
+        {
+            "name": "SocialIdentity",
+            "description": "API Endpoints of SocialIdentity"
+        }
+    ]
+}

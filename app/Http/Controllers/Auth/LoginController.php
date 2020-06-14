@@ -69,11 +69,11 @@ class LoginController extends Controller
        if ($account) {
            return $account->user;
        } else {
-           $user = User::whereEmail($providerUser->getEmail())->first();
+           $user = User::wherePhone($providerUser->getPhone())->first();
 
            if (! $user) {
                $user = User::create([
-                   'email' => $providerUser->getEmail(),
+                   'phone' => $providerUser->getPhone(),
                    'name'  => $providerUser->getName(),
                ]);
            }

@@ -2,6 +2,7 @@
 namespace App\Core\DAL;
 
 use App\Core\Helpers\Utilities;
+use Illuminate\Http\UploadedFile;
 use App\Replay;
 
 

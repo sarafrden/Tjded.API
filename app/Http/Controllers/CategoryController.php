@@ -16,7 +16,20 @@ class CategoryController extends Controller
         $this->CategoryRepository = new CategoryRepository(new Category());
     }
 
-
+    /**
+     * @OA\Post(
+     *      path="/categories/getList",
+     *      operationId="getCategoryList",
+     *      tags={"Categories"},
+     *      summary="Get list of Categories",
+     *      description="Returns list of Categories",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Category")
+     *       ),
+     *     )
+     */
     public function getList(Request $request)
     {
         $request->validate([
@@ -33,6 +46,29 @@ class CategoryController extends Controller
         return Utilities::wrap($response);
     }
 
+    /**
+     * @OA\Post(
+     *      path="/categories/create",
+     *      operationId="Insert Category",
+     *      tags={"Categories"},
+     *      summary="Insert new Category",
+     *      description="Returns Category data",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/Category")
+     *      ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Category")
+     *       ),
+     *   security={
+     *         {
+     *             "api_key": {},
+     *         }
+     *     },
+     * )
+     */
 
     public function create(Request $request)
     {
@@ -43,6 +79,38 @@ class CategoryController extends Controller
         return Utilities::wrap($response);
     }
 
+    /**
+     * @OA\Post(
+     *      path="/categories/{id}/update",
+     *      operationId="Update Category",
+     *      tags={"Categories"},
+     *      summary="Insert new Category info",
+     *      description="Returns Category data",
+     *  @OA\Parameter(
+     *          name="id",
+     *          description="Category id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/Category")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Category")
+     *       ),
+     *  security={
+     *         {
+     *             "api_key": {},
+     *         }
+     *     },
+     * )
+     */
 
     public function update($id, Request $request)
     {
@@ -53,12 +121,55 @@ class CategoryController extends Controller
         return Utilities::wrap($response);
     }
 
+     /**
+    * @OA\Get(
+    *      path="/categories/{id}/delete",
+    *      operationId="DeleteSingleCategory",
+    *      tags={"Categories"},
+    *      summary="Delete single Category",
+    *      description="Returns Deleted",
+    * @OA\Parameter(
+    *          name="id",
+    *          description="Category id",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful operation",
+    *          @OA\JsonContent(ref="#/components/schemas/Category")
+    *       ),
+    *     security={
+    *         {
+    *             "api_key": {},
+    *         }
+    *     },
+    *     )
+    */
 
     public function delete($id)
     {
         $response = $this->CategoryRepository->softDelete($id);
         return Utilities::wrap($response);
     }
+
+    /**
+     * @OA\Post(
+     *      path="/categories/{id}/getItems",
+     *      operationId="getCategoryItemsList",
+     *      tags={"Categories"},
+     *      summary="Get list of category Items",
+     *      description="Returns list of Items",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Item")
+     *       ),
+     *     )
+     */
 
     public function getItems($id, Request $request)
     {
